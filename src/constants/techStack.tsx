@@ -1,197 +1,54 @@
 import {
-  SiC,
-  SiExpress,
-  SiJira,
-  SiMongodb,
-  SiMui,
+  SiNextdotjs,
   SiNestjs,
-  SiPhp,
-  SiPostman,
-  SiRedux,
-  SiStorybook,
+  SiFastapi,
+  SiTurborepo,
+  SiStripe,
+  SiSnowflake,
+  SiLeaflet,
+  SiDocker,
+  SiGraphql,
+  SiAmazon,
+  SiGooglecloud
 } from "react-icons/si";
-import { TbBrandCpp, TbBrandMysql } from "react-icons/tb";
-import {
-  FaBootstrap,
-  FaGithub,
-  FaHtml5,
-  FaJs,
-  FaLaravel,
-  FaNodeJs,
-  FaReact,
-  FaSlack,
-} from "react-icons/fa";
-import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
-import { IoLogoCss3 } from "react-icons/io";
-import { BiLogoPostgresql } from "react-icons/bi";
+import { FaReact, FaGithub, FaDatabase, FaNodeJs } from "react-icons/fa";
+import { BiGitRepoForked } from "react-icons/bi";
 
-// Professional Frontend, Backend & Tools stack
 export const techStack: any = [
   {
     id: 1,
-    name: "Frontend",
-    description:
-      "Technologies used to build user interfaces and web experiences",
+    name: "Core Architecture",
+    description: "Frontend frameworks and core application foundations",
     children: [
-      {
-        id: 1,
-        name: "HTML5",
-        icon: <FaHtml5 className="text-4xl" />,
-        type: "markup",
-      },
-      {
-        id: 2,
-        name: "CSS3",
-        icon: <IoLogoCss3 className="text-4xl" />,
-        type: "style",
-      },
-      {
-        id: 3,
-        name: "JavaScript",
-        icon: <FaJs className="text-4xl" />,
-        type: "language",
-      },
-      {
-        id: 4,
-        name: "Tailwind CSS",
-        icon: <RiTailwindCssFill className="text-4xl" />,
-        type: "framework",
-      },
-      {
-        id: 5,
-        name: "Bootstrap",
-        icon: <FaBootstrap className="text-4xl" />,
-        type: "framework",
-      },
-      {
-        id: 6,
-        name: "Material UI",
-        icon: <SiMui className="text-4xl" />,
-        type: "library",
-      },
-      {
-        id: 7,
-        name: "React.js",
-        icon: <FaReact className="text-4xl" />,
-        type: "library",
-      },
-      {
-        id: 8,
-        name: "Next.js",
-        icon: <RiNextjsFill className="text-4xl" />,
-        type: "framework",
-      },
+      { id: 1, name: "Next.js", icon: <SiNextdotjs className="text-4xl" />, type: "framework" },
+      { id: 2, name: "React", icon: <FaReact className="text-4xl" />, type: "library" },
+      { id: 3, name: "NestJS", icon: <SiNestjs className="text-4xl" />, type: "framework" },
+      { id: 4, name: "FastAPI", icon: <SiFastapi className="text-4xl" />, type: "framework" },
+      { id: 5, name: "Node.js", icon: <FaNodeJs className="text-4xl" />, type: "runtime" },
     ],
   },
   {
     id: 2,
-    name: "Backend",
-    description: "Technologies for server-side development and databases",
+    name: "Data & APIs",
+    description: "Data processing, third-party integrations, and visualization",
     children: [
-      {
-        id: 1,
-        name: "Node.js",
-        icon: <FaNodeJs className="text-4xl" />,
-        type: "runtime",
-      },
-      {
-        id: 2,
-        name: "Express.js",
-        icon: <SiExpress className="text-4xl" />,
-        type: "framework",
-      },
-      {
-        id: 3,
-        name: "Nest.js",
-        icon: <SiNestjs className="text-4xl" />,
-        type: "framework",
-      },
-      {
-        id: 4,
-        name: "Laravel",
-        icon: <FaLaravel className="text-4xl" />,
-        type: "framework",
-      },
-      {
-        id: 5,
-        name: "MongoDB",
-        icon: <SiMongodb className="text-4xl" />,
-        type: "database",
-      },
-      {
-        id: 6,
-        name: "PostgreSQL",
-        icon: <BiLogoPostgresql className="text-4xl" />,
-        type: "database",
-      },
-      {
-        id: 7,
-        name: "MySQL",
-        icon: <TbBrandMysql className="text-4xl" />,
-        type: "database",
-      },
-      // {
-      //   id: 8,
-      //   name: "C",
-      //   icon: <SiC className="text-4xl" />,
-      //   type: "language",
-      // },
-      // {
-      //   id: 9,
-      //   name: "C++",
-      //   icon: <TbBrandCpp className="text-4xl" />,
-      //   type: "language",
-      // },
-      {
-        id: 10,
-        name: "PHP",
-        icon: <SiPhp className="text-4xl" />,
-        type: "language",
-      },
+      { id: 1, name: "Snowflake", icon: <SiSnowflake className="text-4xl" />, type: "database" },
+      { id: 2, name: "Stripe API", icon: <SiStripe className="text-4xl" />, type: "api" },
+      { id: 3, name: "GraphQL", icon: <SiGraphql className="text-4xl" />, type: "api" },
+      { id: 4, name: "Meta Graph API", icon: <FaDatabase className="text-4xl" />, type: "api" },
+      { id: 5, name: "Leaflet", icon: <SiLeaflet className="text-4xl" />, type: "visualization" },
     ],
   },
   {
     id: 3,
-    name: "Tools & Others",
-    description:
-      "Supporting tools, state management, collaboration, and API testing",
+    name: "Infrastructure & DevOps",
+    description: "Monorepos, containerization, and cloud deployment",
     children: [
-      {
-        id: 1,
-        name: "Redux",
-        icon: <SiRedux className="text-4xl" />,
-        type: "state management",
-      },
-      {
-        id: 2,
-        name: "GitHub",
-        icon: <FaGithub className="text-4xl" />,
-        type: "version control",
-      },
-      {
-        id: 3,
-        name: "Storybook",
-        icon: <SiStorybook className="text-4xl" />,
-        type: "UI documentation",
-      },
-      {
-        id: 4,
-        name: "Jira",
-        icon: <SiJira className="text-4xl" />,
-        type: "project management",
-      },
-      {
-        id: 5,
-        name: "Slack",
-        icon: <FaSlack className="text-4xl" />,
-        type: "team communication",
-      },
-      {
-        id: 6,
-        name: "Postman",
-        icon: <SiPostman className="text-4xl" />,
-        type: "API testing",
-      },
+      { id: 1, name: "Turborepo", icon: <SiTurborepo className="text-4xl" />, type: "tool" },
+      { id: 2, name: "Docker", icon: <SiDocker className="text-4xl" />, type: "container" },
+      { id: 3, name: "AWS", icon: <SiAmazon className="text-4xl" />, type: "cloud" },
+      { id: 4, name: "GCP", icon: <SiGooglecloud className="text-4xl" />, type: "cloud" },
+      { id: 5, name: "Git", icon: <BiGitRepoForked className="text-4xl" />, type: "vcs" },
     ],
   },
 ];

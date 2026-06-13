@@ -17,7 +17,13 @@ const config: Config = {
         'spin-slower':'spin 20s linear infinite'
       },
       colors: {
-        primary: "#64ffda",
+        primary: "#10B981", // Cyber Emerald
+        accent: "#06B6D4", // Electric Cyan
+        slate: {
+          900: "#0B0F19", // Deep Slate (Background)
+          800: "#151A23", // Dark Charcoal (Cards/Surfaces)
+          700: "#2A3241", // Subtle border
+        },
       },
       fontFamily: {
         heading: ["var(--font-space)"],

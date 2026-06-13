@@ -1,70 +1,88 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { BlurFadeEffectWrapper } from "../ui/BlurFadeEffectWrapper";
 import { FlipWords } from "../ui/Flipwords";
-import { getCurrentAge } from "@/utils/cn";
+
+const Terminal = () => {
+  const [text, setText] = useState("");
+  const fullText = `[INIT] Loading workspace...
+[SUCCESS] Connected to Snowflake
+[SUCCESS] Authenticated Meta Graph API
+[RUN] Executing build pipeline...
+
+> system.status: ONLINE
+> system.role: FULL-STACK & INFRASTRUCTURE ENGINEER
+> _`;
+
+  useEffect(() => {
+    let i = 0;
+    const intervalId = setInterval(() => {
+      setText(fullText.slice(0, i));
+      i++;
+      if (i > fullText.length) clearInterval(intervalId);
+    }, 30);
+    return () => clearInterval(intervalId);
+  }, []);
+
+  return (
+    <div className="w-full max-w-2xl mx-auto rounded-lg overflow-hidden border border-slate-700 bg-slate-800 shadow-2xl">
+      <div className="flex items-center px-4 py-2 bg-slate-900 border-b border-slate-700">
+        <div className="flex space-x-2">
+          <div className="w-3 h-3 rounded-full bg-red-500"></div>
+          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+          <div className="w-3 h-3 rounded-full bg-green-500"></div>
+        </div>
+        <div className="mx-auto text-xs text-slate-400 font-mono">guest@malekverse:~</div>
+      </div>
+      <div className="p-4 font-mono text-sm md:text-base text-primary whitespace-pre-wrap min-h-[180px]">
+        {text}
+        <motion.span
+          animate={{ opacity: [1, 0] }}
+          transition={{ repeat: Infinity, duration: 0.8 }}
+          className="inline-block w-2 h-4 bg-primary ml-1 align-middle"
+        />
+      </div>
+    </div>
+  );
+};
+
 const About = () => {
   return (
-    <div className=" flex flex-col items-center justify-center gap-2 md:gap-3">
+    <div className="flex flex-col items-center justify-center gap-6 md:gap-8 min-h-[80vh] px-4">
       <motion.div
-        initial={{ opacity: 0, scale: 0.5, rotate: 120 }}
-        animate={{ opacity: 1, scale: 1, rotate: 0 }}
-        transition={{ duration: 1 }}
-        className="relative z-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="w-full z-10"
       >
-        <Image
-          className="relative rounded-full mx-auto object-cover aspect-square z-10 ring-2 ring-offset-purple ring-offset-2 ring-blue-200"
-          src="/images/profile.jpg"
-          alt="my-picture"
-          height={180}
-          width={180}
-          priority
-        ></Image>
+        <Terminal />
       </motion.div>
-      <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
-        className="flex text-center md:tracking-wider mb-4 text-md md:text-lg lg:text-xl font-semibold"
-      >
-        Hi!{" "}
-        <motion.div
-          initial={{ opacity: 1, rotate: 0 }}
-          animate={{ opacity: 1, rotate: [0, 20, -10, 10, -5, 0] }}
-          transition={{
-            duration: 1,
-            repeat: Infinity,
-            repeatDelay: 1.5,
-            ease: "easeInOut",
-          }}
-        >
-          👋{" "}
-        </motion.div>{" "}
-        I&apos;m Abdul Malek
-      </motion.div>
+
       <BlurFadeEffectWrapper delay={0.3}>
-        <FlipWords
-          className="text-center font-bold text-[40px] md:text-5xl lg:text-6xl leading-6"
-          words={[
-            "Frontend Developer",
-            "Full Stack Developer",
-            "Laravel Developer",
-            "Enthusiastic Learner ",
-          ]}
-        />
+        <h1 className="text-center font-bold text-3xl md:text-5xl lg:text-6xl leading-tight max-w-4xl bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
+          Architecting Scalable Systems & <br /> High-Performance Infrastructure
+        </h1>
       </BlurFadeEffectWrapper>
-      <div className="flex gap-1 justify-center items-center my-4 max-w-screen-md">
-        <BlurFadeEffectWrapper delay={0.38}>
-          <p className="text-center md:tracking-wider  text-base md:text-md text-zinc-200">
-            A {getCurrentAge()}-year-old Software Engineering graduate from{" "}
-            <span className="text-[#cbacf9] font-semibold">Bangladesh</span>,
-            passionate about frontend development and driven by a creative
-            mindset and attention to detail
-          </p>
-        </BlurFadeEffectWrapper>
-      </div>
-      {/* <FlipWords /> */}
+
+      <BlurFadeEffectWrapper delay={0.5}>
+        <div className="text-center font-mono text-lg md:text-xl text-accent mb-2">
+          <FlipWords
+            words={[
+              "Distributed Monorepos",
+              "Data-Intensive APIs",
+              "Cloud-Native Architectures",
+              "Complex Integrations",
+            ]}
+          />
+        </div>
+      </BlurFadeEffectWrapper>
+
+      <BlurFadeEffectWrapper delay={0.7}>
+        <p className="text-center md:tracking-wider text-base md:text-lg text-slate-400 max-w-2xl">
+          Specializing in building robust engines for data-driven platforms. I transform complex architectural challenges into elegant, high-throughput enterprise applications.
+        </p>
+      </BlurFadeEffectWrapper>
+
       <Light />
       <Light left={0} />
     </div>
@@ -80,14 +98,13 @@ const Light = ({ left = 1 }) => {
         left === 1
           ? "-top-12 left-0 -translate-x-1/2 -translate-y-1/2"
           : "-top-10 -right-20"
-      } transform `}
+      } transform pointer-events-none z-0`}
     >
       <div
-        className={`w-96 h-96 rounded-full  blur-[100px] ${
-          left === 1 ? "opacity-40 bg-yellow-300" : "opacity-30 bg-yellow-200"
+        className={`w-[500px] h-[500px] rounded-full blur-[120px] ${
+          left === 1 ? "opacity-20 bg-primary" : "opacity-10 bg-accent"
         }`}
       ></div>
-      <div className="w-40 h-40 rounded-full bg-yellow-200 blur-3xl opacity-80 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-2xl"></div>
     </div>
   );
 };
