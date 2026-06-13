@@ -22,7 +22,7 @@ const Terminal = () => {
       if (i > fullText.length) clearInterval(intervalId);
     }, 30);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [fullText]);
 
   return (
     <div className="w-full max-w-2xl mx-auto rounded-lg overflow-hidden border border-slate-700 bg-slate-800 shadow-2xl">

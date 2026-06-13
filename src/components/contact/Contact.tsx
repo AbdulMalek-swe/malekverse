@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Calendar, ArrowRight, Code, Server, Database } from "lucide-react";
+import { Mail, Calendar,   Code, Server, Database } from "lucide-react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -43,7 +43,7 @@ const Contact = () => {
           Ready to scale your architecture?
         </motion.h2>
         <motion.p className="text-xl text-slate-400" variants={itemVariants}>
-          Let's discuss how we can engineer a robust solution for your next enterprise application.
+          Let&apos;s discuss how we can engineer a robust solution for your next enterprise application.
         </motion.p>
       </div>
 
@@ -108,12 +108,12 @@ const Contact = () => {
             >
               <h3 className="text-2xl font-semibold text-white">Request a Technical Consult</h3>
               <p className="text-slate-400">
-                You selected: <span className="text-primary font-semibold">{intent}</span>. Let's get on a brief call to align on your technical requirements.
+                You selected: <span className="text-primary font-semibold">{intent}</span>. Let&apos;s get on a brief call to align on your technical requirements.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <a 
-                  href="mailto:malek@example.com" 
+                  href="mailto:abdulmalek.swe.585@gmail.com" 
                   className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-xl transition-colors"
                 >
                   <Mail size={20} /> Email Me
